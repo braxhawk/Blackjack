@@ -11,7 +11,9 @@ class Hand extends React.Component {
 						{this.props.cards.map(function(card, i){
 							if (card[0]) {
 								return (
+									<Fragment>
 									<Card key={card[0].number + ' ' + card[0].suit} number={card[0].number} suit={card[0].suit} hidden={card.hidden}  />
+									</Fragment>
 								);
 							}
 						})}

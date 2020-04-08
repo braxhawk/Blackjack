@@ -105,15 +105,16 @@ var Card = function (_React$Component) {
 			if (this.props.hidden !== true) {
 				cardContent = _react2.default.createElement(
 					'div',
-					null,
+					{'aria-hidden': 'true'},
 					corners,
 					suit
 				);
+				//cardContent[aria-hidden] = 'true';
 			}
 
 			return _react2.default.createElement(
 				'div',
-				{ className: suit == '♥' || suit == '♦' ? 'card card--red' : 'card' },
+				{ className: suit == '♥' || suit == '♦' ? 'card card--red' : 'card', 'aria-label': this.props.hidden ? 'hidden card' : _helpers2.default.getCardName(this.props.number) + " of " + suit},
 				cardContent
 			);
 		}
