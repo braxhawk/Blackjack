@@ -93,7 +93,7 @@ var Card = function (_React$Component) {
 			    suit = _helpers2.default.getSuitIcon(this.props.suit);
 
 			// Generate the four corners of the card
-			for (var i = 0; i < 4; i++) {
+			for (var i = 0; i < 1; i++) {
 				corners.push(_react2.default.createElement(
 					'span',
 					{ key: i, className: 'card__corner' },
@@ -412,7 +412,6 @@ var Game = function (_React$Component) {
 			// When we have a winner, show dealer score and winner name
 			if (this.state.winner != '') {
 				var winText = void 0;
-
 				if (this.state.winner == 'draw') {
 					winText = 'Game was a draw!';
 				} else {
@@ -422,18 +421,22 @@ var Game = function (_React$Component) {
 					'div',
 					null,
 					_react2.default.createElement(
-						'h3',
-						null,
-						this.state.players.computer.name
-					),
-					' ',
-					this.state.players.computer.hand.total,
-					_react2.default.createElement(
 						'div',
 						{ className: 'game__scores__win-text' },
-						winText
+						winText,
+						//"      your score: ",
+						//playerTotal,
+						//"  dealer score: ",
+						//computerTotal
 					)
 				);
+				if (winText == 'Dealer wins!' || winText == 'Game was a draw!') {
+					var audio = new Audio("web/audio-lose.mp3");
+					audio.play();
+				} else {
+					var audio = new Audio("web/audio-win.mp3");
+					audio.play();
+				}
 			}
 
 			// If the player hasn't entered a name, show the setup screen
@@ -454,29 +457,7 @@ var Game = function (_React$Component) {
 						),
 						_react2.default.createElement(
 							'div',
-							{ className: 'game__scores' },
-							_react2.default.createElement(
-								'h2',
-								null,
-								'Scores'
-							),
-							_react2.default.createElement(
-								'h3',
-								null,
-								this.state.players.player.name
-							),
-							' ',
-							this.state.players.player.hand.total,
-							winBox
-						),
-						_react2.default.createElement(
-							'div',
 							{ className: 'game__controls' },
-							_react2.default.createElement(
-								'button',
-								{ onClick: this.handleRestart.bind(this) },
-								'Restart'
-							),
 							_react2.default.createElement(
 								'button',
 								{ onClick: this.handleHit.bind(this), disabled: this.state.winner != '' },
@@ -486,7 +467,18 @@ var Game = function (_React$Component) {
 								'button',
 								{ onClick: this.handleStand.bind(this), disabled: this.state.winner != '' },
 								'Stand'
+							),
+							_react2.default.createElement(
+								'button',
+								{ onClick: this.handleRestart.bind(this) },
+								'Restart'
 							)
+						),
+						_react2.default.createElement(
+							'div',
+							{ className: 'game__scores' },
+							' ',
+							winBox
 						)
 					)
 				);
@@ -553,7 +545,7 @@ var GameSetup = function (_React$Component) {
 							null,
 							"Your Name:",
 							_react2.default.createElement("br", null),
-							_react2.default.createElement("input", { type: "text", placeholder: "John Smith", ref: "playerName", required: true })
+							_react2.default.createElement("input", { type: "text", placeholder: "John Smith", ref: "playerName", required: true, 'aria-label': 'Enter name' })
 						),
 						_react2.default.createElement(
 							"button",
