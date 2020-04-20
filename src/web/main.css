@@ -142,6 +142,7 @@ dfn {
  */
 h1 {
   font-size: 2em;
+  font-weight: bolder;
   margin: 0.67em 0;
 }
 
@@ -242,7 +243,7 @@ button,
 input,
 select,
 textarea {
-  font: inherit;
+  font-family: "Avenir";
   /* 1 */
   margin: 0;
   /* 2 */
@@ -434,6 +435,8 @@ button {
   -webkit-appearance: none;
   width: 100%;
   font-size: 32px;
+  font-family: "Avenir";
+  font-weight: bolder;
 }
 
 input {
@@ -455,6 +458,13 @@ input {
   font-size: 3.5rem;
   font-weight: bold;
   margin: 1rem;
+}
+
+h1 {
+  text-align: center;
+  letter-spacing: 5px;
+  font-family: "Avenir";
+
 }
 
 .card--red {
@@ -500,6 +510,10 @@ input {
 .hand h3 {
   width: 100%;
   margin-top: 0;
+  font-family: "Avenir";
+  font-weight: bolder;
+  font-size: xx-large;
+  margin-bottom: 0;
 }
 
 .hand__cards {
@@ -522,7 +536,7 @@ input {
   background: #2e2e53;
   color: #fff;
   text-align: center;
-  padding: 2rem;
+  padding: 0cm;
 }
 
 .game__scores h2 {
@@ -582,4 +596,14 @@ input {
 .modal--is-hidden {
   visibility: hidden;
   opacity: 0;
+}
+
+p{
+  font-family: "Avenir";
+  font-size: x-large;
+}
+
+form {
+  padding-left: 3cm;
+  padding-right: 3cm;
 }
