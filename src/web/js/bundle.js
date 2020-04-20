@@ -457,6 +457,12 @@ var Game = function (_React$Component) {
 						),
 						_react2.default.createElement(
 							'div',
+							{ className: 'game__scores' },
+							' ',
+							winBox
+						),
+						_react2.default.createElement(
+							'div',
 							{ className: 'game__controls' },
 							_react2.default.createElement(
 								'button',
@@ -473,12 +479,6 @@ var Game = function (_React$Component) {
 								{ onClick: this.handleRestart.bind(this) },
 								'Restart'
 							)
-						),
-						_react2.default.createElement(
-							'div',
-							{ className: 'game__scores' },
-							' ',
-							winBox
 						)
 					)
 				);
