@@ -545,13 +545,21 @@ var GameSetup = function (_React$Component) {
 							null,
 							"Your Name:",
 							_react2.default.createElement("br", null),
-							_react2.default.createElement("input", { type: "text", placeholder: "John Smith", ref: "playerName", required: true, 'aria-label': 'Enter name' })
+							_react2.default.createElement("input", { type: "text", placeholder: "Jane Smith", ref: "playerName", required: true, 'aria-label': 'Enter name' })
 						),
 						_react2.default.createElement(
 							"button",
 							{ type: "submit" },
 							"Play"
-						)
+						),
+						_react2.default.createElement(
+							"p",
+							null,
+							_react2.default.createElement("br", null),
+							"Instructions:",
+							_react2.default.createElement("br", null),
+							"Enter your name and press play to start. The goal is to get closer to 21 than the dealer without exceeding it. Use 'Hit' or 'Stand' to do so. The game is high-contrast and fully VoiceOver compatible."
+						),
 					)
 				)
 			);
