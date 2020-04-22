@@ -171,6 +171,7 @@ var Game = function (_React$Component) {
 		_this.state = {
 			deck: [],
 			winner: '',
+			gameMode: true,
 			players: {
 				player: {
 					name: 'You',
@@ -326,9 +327,9 @@ var Game = function (_React$Component) {
 			this.setState({ players: this.state.players });
 		}
 
-		// Handles Hit button
 
 	}, {
+		// Handles Hit button
 		key: 'handleHit',
 		value: function handleHit() {
 			this.addCard('player');
@@ -348,13 +349,20 @@ var Game = function (_React$Component) {
 		// Handles Stand button
 
 	}, {
+		// HERE is where we implement the gameMode: in easy the CPU will be less than 17
+												//  in hard the CPU will be less than 19
 		key: 'handleStand',
 		value: function handleStand() {
 			var playerTotal = this.state.players.player.hand.total,
-			    computerTotal = this.state.players.computer.hand.total;
+				computerTotal = this.state.players.computer.hand.total;
 
-			// Continues to deal for itself while the card value is < 17
+				// Continues to deal for itself while the card value is < 17
 			while (computerTotal < 17) {
+				this.addCard('computer');
+				computerTotal = this.state.players.computer.hand.total;
+			}
+
+			while (computerTotal < 19) {
 				this.addCard('computer');
 				computerTotal = this.state.players.computer.hand.total;
 			}
@@ -424,10 +432,10 @@ var Game = function (_React$Component) {
 						'div',
 						{ className: 'game__scores__win-text' },
 						winText,
-						//"      your score: ",
-						//playerTotal,
-						//"  dealer score: ",
-						//computerTotal
+						"      your score: ",
+						playerTotal,
+						"  dealer score: ",
+						computerTotal
 					)
 				);
 				if (winText == 'Dealer wins!' || winText == 'Game was a draw!') {
@@ -439,6 +447,12 @@ var Game = function (_React$Component) {
 				}
 			}
 
+			// let currentMode = '- Game Mode: Beginner'
+			// if (this.gameMode) {
+			// 	currentMode = '- Game Mode: Beginner'
+			// } else {
+			// 	currentMode = '- Game Mode: Pro'
+			// }
 			// If the player hasn't entered a name, show the setup screen
 			if (this.state.players.player.name == 'You') {
 				return _react2.default.createElement(_GameSetup2.default, { setPlayerName: this.setPlayerName.bind(this) });
@@ -453,7 +467,7 @@ var Game = function (_React$Component) {
 							'div',
 							{ className: 'game__hands' },
 							_react2.default.createElement(_Hand2.default, { cards: this.state.players.computer.hand.cards, title: this.state.players.computer.name }),
-							_react2.default.createElement(_Hand2.default, { cards: this.state.players.player.hand.cards, title: this.state.players.player.name })
+							_react2.default.createElement(_Hand2.default, { cards: this.state.players.player.hand.cards, title: this.state.players.player.name})
 						),
 						_react2.default.createElement(
 							'div',
@@ -474,12 +488,13 @@ var Game = function (_React$Component) {
 								'Restart'
 							)
 						),
-						_react2.default.createElement(
-							'div',
-							{ className: 'game__scores' },
-							' ',
-							winBox
-						)
+						
+						//_react2.default.createElement(
+							//'div',
+							//{ className: 'game__scores' },
+							//' ',
+							//winBox
+						//)
 					)
 				);
 			}
@@ -537,6 +552,17 @@ var GameSetup = function (_React$Component) {
 				_react2.default.createElement(
 					"div",
 					{ className: "modal__inner" },
+
+					// code meant for game modes
+
+					// _react2.default.createElement(
+					// 	"label",
+					// 	null, 
+					// 	"Choose Your Game Mode:",
+					// 	_react2.default.createElement("br", null)
+					// ),
+					//_react2.default.createElement('button', { type: 'button', onClick: this.btnClickBeginner },'Beginner'),
+					//_react2.default.createElement('button', { type: 'button', onClick: this.btnClickPro },'Pro'),
 					_react2.default.createElement(
 						"form",
 						{ onSubmit: this.handlePlayerNameSubmit.bind(this) },

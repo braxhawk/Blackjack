@@ -11,7 +11,7 @@ class GameSetup extends React.Component {
 		return(
 			<div className="modal">
 				<div className="modal__inner">
-					<form onSubmit={this.handlePlayerNameSubmit.bind(this)}>
+					<form onSubmit={this.handlePlayerNameSubmit.bind()}>
 						<label>
 							Your Name:<br/>
 							<input type="text" placeholder="John Smith" ref="playerName" required/>
