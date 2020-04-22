@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/braxhawk/Blackjack#readme",
   "dependencies": {
-    "bulma": "^0.8.0"
+    "bulma": "^0.8.0",
+    "react-radio-buttons": "^1.2.2"
   }
 }
