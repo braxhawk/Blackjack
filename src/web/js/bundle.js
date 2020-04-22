@@ -568,7 +568,7 @@ var GameSetup = function (_React$Component) {
 						_react2.default.createElement(
 							'h1',
 							null,
-							"Blackjack",
+							"BLACKJACK",
 							_react2.default.createElement("br", null)
 						),
 						_react2.default.createElement(
@@ -581,7 +581,9 @@ var GameSetup = function (_React$Component) {
 						_react2.default.createElement(
 							"p", 
 							null, 
-							"Enter your name and press play to start. The goal is to get closer to 21 than the dealer without exceeding it. Use 'Hit' or 'Stand' to do so. The game is high-contrast and fully VoiceOver compatible."
+							"Enter name and press play to start. The goal is to get closer to 21 than the dealer without exceeding it, using the 'Hit' or 'Stand' buttons to draw more cards or pass your turn. The game is high-contrast and fully VoiceOver compatible.",
+							_react2.default.createElement("br", null),
+							"(Enable VoiceOver using Cmd-F5 and navigate with VO-Arrow keys.)"
 						),
 						_react2.default.createElement(
 							"label",
