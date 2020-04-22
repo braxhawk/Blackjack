@@ -9,6 +9,7 @@ class Game extends React.Component {
 		this.state = {
 			deck: [],
 			winner: '',
+			//gameMode: true, 
 			players: {
 				player: {
 					name: 'You',
@@ -28,7 +29,18 @@ class Game extends React.Component {
 		};
 
 	}
+/** 
+	btnClickPro(){
+		alert('Pro Mode')
+	    this.setState({gameMode: false}).bind(this);
+	}
 
+	btnClickBeginner(){
+		alert('Beginner Mode')
+	    this.setState({gameMode: true}).bind(this);
+	}
+
+*/
 	// Generate the deck
 	createDeck() {
 		let generatedDeck = [];
@@ -160,13 +172,18 @@ class Game extends React.Component {
 
 	// Handles Stand button
 	handleStand() {
-		let playerTotal = this.state.players.player.hand.total, 
-			computerTotal = this.state.players.computer.hand.total; 
+		let playerTotal = this.state.players.player.hand.total,
+			computerTotal = this.state.players.computer.hand.total,
 
-		// Continues to deal for itself while the card value is < 17
-		while ( computerTotal < 17 ) {
+			// Continues to deal for itself while the card value is < 17
+		while (computerTotal < 17) {
 			this.addCard('computer');
-			computerTotal = this.state.players.computer.hand.total; 
+			computerTotal = this.state.players.computer.hand.total;
+		}
+
+		while (computerTotal < 19) {
+			this.addCard('computer');
+			computerTotal = this.state.players.computer.hand.total;
 		}
 
 		// Stand win logic
@@ -203,6 +220,7 @@ class Game extends React.Component {
 		this.state.players.player.name = playerName;
 		this.setState({players: this.state.players});
 	}
+
 
 	render() {
 		let winBox,
