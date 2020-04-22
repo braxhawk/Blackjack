@@ -493,18 +493,7 @@ var Game = function (_React$Component) {
 								{ onClick: this.handleRestart.bind(this) },
 								'Restart'
 							)
-<<<<<<< HEAD
-						),
-						
-						//_react2.default.createElement(
-							//'div',
-							//{ className: 'game__scores' },
-							//' ',
-							//winBox
-						//)
-=======
 						)
->>>>>>> 00834f0fae0f689f073936cd5b570b714500b590
 					)
 				);
 			}
@@ -577,6 +566,24 @@ var GameSetup = function (_React$Component) {
 						"form",
 						{ onSubmit: this.handlePlayerNameSubmit.bind(this) },
 						_react2.default.createElement(
+							'h1',
+							null,
+							"Blackjack",
+							_react2.default.createElement("br", null)
+						),
+						_react2.default.createElement(
+							"label",
+							null,
+							_react2.default.createElement("br", null),
+							"Instructions:",
+							_react2.default.createElement("br", null),
+						),
+						_react2.default.createElement(
+							"p", 
+							null, 
+							"Enter your name and press play to start. The goal is to get closer to 21 than the dealer without exceeding it. Use 'Hit' or 'Stand' to do so. The game is high-contrast and fully VoiceOver compatible."
+						),
+						_react2.default.createElement(
 							"label",
 							null,
 							"Your Name:",
@@ -587,14 +594,6 @@ var GameSetup = function (_React$Component) {
 							"button",
 							{ type: "submit" },
 							"Play"
-						),
-						_react2.default.createElement(
-							"p",
-							null,
-							_react2.default.createElement("br", null),
-							"Instructions:",
-							_react2.default.createElement("br", null),
-							"Enter your name and press play to start. The goal is to get closer to 21 than the dealer without exceeding it. Use 'Hit' or 'Stand' to do so. The game is high-contrast and fully VoiceOver compatible."
 						),
 					)
 				)
