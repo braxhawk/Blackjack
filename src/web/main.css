@@ -276,7 +276,7 @@ select {
   text-transform: none;
 }
 
-button:hover {
+button:focus, button:hover {
   /* 1 */
   text-transform: none;
   color: #1c1c32;
