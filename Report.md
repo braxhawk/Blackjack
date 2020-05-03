@@ -12,5 +12,5 @@ We also used macOS VoiceOver compatibility to allow all the elements of the game
 ## How to Play
 For simple use and deployment of Blackjack, one would only need to go to https://braxhawk.github.io/Blackjack/src/ to play.
 
-## Problems and Further Directions
+## Problems and Future Directions
 Some problems we encountered were deciding whether to utilize VoiceOver or a Web to Speech API, because a visually impaired user can use VoiceOver, but has to manually go through all the elements on the page to read the card. In addition, if we utilize both the VoiceOver and API, then everything on the page is announced multiple times. Another problem we encountered is cross platform development. Our game is compatible for Mac Users, and does work properly for Windows users. In the future, we hope to scale our game into an all emcompassing, "Casino" version of the game. This would include adding an beginner, intermediate, and advanced game mode that would adjust the max hit of the dealer to varying levels. Additionally, adding VoiceOver compatiable betting scenarios would be a neat and further interactive feature to add.
