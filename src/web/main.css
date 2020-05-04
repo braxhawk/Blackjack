@@ -471,6 +471,15 @@ input {
   margin: 1rem;
 }
 
+@media screen and (min-device-width : 320px) and (max-device-width : 768px) {
+  .card {
+    width: 9rem;
+    height: 9rem;
+  }
+
+  
+}
+
 h1 {
   text-align: center;
   letter-spacing: 5px;
@@ -580,6 +589,15 @@ h1 {
   align-items: center;
   justify-content: center;
 }
+
+@media screen and (max-device-width:768px) {
+  
+  .game__controls {
+    flex-direction: column;
+  }
+
+}
+
 
 .game__controls button {
   width: auto;
