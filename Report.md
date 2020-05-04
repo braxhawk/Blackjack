@@ -15,3 +15,6 @@ For simple use and deployment of Blackjack, one would only need to go to https:/
 
 ## Problems and Future Directions
 Some problems we encountered were deciding whether to utilize screenreaders or a web text-to-speech API. We decided with using screenreaders such that users could have better control of the game, rather than TTS being too redundant or too brief for a given individual's needs. An issue that we encountered due to this, however, was cross-platform compatibility. Our game was made originally to be compatible for VoiceOver users, but other users experienced difficulties with their native screenreaders. We attempted to address by ensuring compatibility with a browser-based screenreader, ChromeVox, but we are also looking into an additional opt-in text-to-speech option for users who prefer not to use a screenreader. Additionally, in the future, we hope to scale our game into an all-emcompassing, "Casino" version of the game which could include varying Dealer difficulty levels, money/betting scenarios, and perhaps new games as well!
+
+
+Credit for base game to: jayfreestone
