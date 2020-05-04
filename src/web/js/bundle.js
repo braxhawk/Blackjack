@@ -396,8 +396,8 @@ var Game = function (_React$Component) {
 
 		key: 'handleRead',
 		value: function handleRead() {
-			let textDealer = "The Dealer's cards are ";
-			let textPlayer = this.state.players.player.name + " Your cards are ";
+			let textDealer = "The Dealer's cards are ,";
+			let textPlayer = this.state.players.player.name + ", Your cards are ,";
 	
 			this.state.players.computer.hand.cards.forEach(function (card) {
 				let cardValueD = card[0].number;
@@ -419,7 +419,7 @@ var Game = function (_React$Component) {
 							cardValueD = cardValueD;
 							break;
 					}
-					textDealer = textDealer + ", " + (cardValueD); 
+					textDealer = textDealer + " , " + (cardValueD) + ", and "; 
 				}
 			});
 			this.state.players.player.hand.cards.forEach(function (card) {
@@ -438,13 +438,14 @@ var Game = function (_React$Component) {
 						cardValue = 'King';
 						break;
 					default:
-						cardValue = cardValue;
+						cardValue = cardValue ;
 						break;
 				}
-				textPlayer = textPlayer + ", " + (cardValue); 
+				textPlayer = textPlayer + ", " + (cardValue) + ", and "; 
 			});
 
-			let text = ", " + textDealer + ", " + textPlayer;
+			let text = ", " + textDealer + textPlayer;
+			text = text.slice(0, text.length - 4);
 
 			var msg = new SpeechSynthesisUtterance(text);
 			msg.rate = 0.8
