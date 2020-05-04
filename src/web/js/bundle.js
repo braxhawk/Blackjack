@@ -367,11 +367,6 @@ var Game = function (_React$Component) {
 				computerTotal = this.state.players.computer.hand.total;
 			}
 
-			while (computerTotal < 19) {
-				this.addCard('computer');
-				computerTotal = this.state.players.computer.hand.total;
-			}
-
 			// Stand win logic
 			if (computerTotal > 21) {
 				this.setState({ winner: 'player' });
