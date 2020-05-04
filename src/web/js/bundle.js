@@ -419,7 +419,7 @@ var Game = function (_React$Component) {
 							cardValueD = cardValueD;
 							break;
 					}
-					textDealer = textDealer + " ...a... " + (cardValueD); 
+					textDealer = textDealer + "... ... " + (cardValueD); 
 				}
 			});
 			this.state.players.player.hand.cards.forEach(function (card) {
@@ -441,12 +441,13 @@ var Game = function (_React$Component) {
 						cardValue = cardValue;
 						break;
 				}
-				textPlayer = textPlayer + " ...a..." + (cardValue); 
+				textPlayer = textPlayer + " ... ..." + (cardValue); 
 			});
 
-			let text = "" + textDealer + "... " + textPlayer;
+			let text = "" + textDealer + "... ..." + textPlayer;
 
 			var msg = new SpeechSynthesisUtterance(text);
+			msg.rate = 0.8
 			window.speechSynthesis.speak(msg);
 		}
 
