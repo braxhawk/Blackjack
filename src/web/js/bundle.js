@@ -393,6 +393,64 @@ var Game = function (_React$Component) {
 		// Shows dealer's hidden card
 
 	}, {
+
+		key: 'handleRead',
+		value: function handleRead() {
+			let textDealer = "The Dealer's cards are ";
+			let textPlayer = this.state.players.player.name + "...Your cards are ";
+	
+			this.state.players.computer.hand.cards.forEach(function (card) {
+				let cardValueD = card[0].number;
+				if (!card.hidden) {
+					switch (cardValueD) {
+						case 1:
+							cardValueD = 'Ace';
+							break;
+						case 11:
+							cardValueD = 'Jack';
+							break;
+						case 12:
+							cardValueD = 'Queen';
+							break;
+						case 13:
+							cardValueD = 'King';
+							break;
+						default:
+							cardValueD = cardValueD;
+							break;
+					}
+					textDealer = textDealer + " ...a... " + (cardValueD); 
+				}
+			});
+			this.state.players.player.hand.cards.forEach(function (card) {
+				let cardValue = card[0].number;
+				switch (cardValue) {
+					case 1:
+						cardValue = 'Ace';
+						break;
+					case 11:
+						cardValue = 'Jack';
+						break;
+					case 12:
+						cardValue = 'Queen';
+						break;
+					case 13:
+						cardValue = 'King';
+						break;
+					default:
+						cardValue = cardValue;
+						break;
+				}
+				textPlayer = textPlayer + " ...a..." + (cardValue); 
+			});
+
+			let text = "" + textDealer + "... " + textPlayer;
+
+			var msg = new SpeechSynthesisUtterance(text);
+			window.speechSynthesis.speak(msg);
+		}
+
+	}, {
 		key: 'revealDealer',
 		value: function revealDealer() {
 			this.state.players.computer.hand.cards.forEach(function (card) {
@@ -478,6 +536,11 @@ var Game = function (_React$Component) {
 						_react2.default.createElement(
 							'div',
 							{ className: 'game__controls' },
+							_react2.default.createElement(
+								'button',
+								{ onClick: this.handleRead.bind(this) },
+								'Read Cards'
+							),
 							_react2.default.createElement(
 								'button',
 								{ onClick: this.handleHit.bind(this), disabled: this.state.winner != '' },

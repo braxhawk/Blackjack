@@ -206,6 +206,64 @@ class Game extends React.Component {
 		this.startGame();
 	}
 
+	handleRead() {
+		let textDealer = "The Dealer's cards are ";
+		let textPlayer = "Your cards are ";
+
+		this.state.players.computer.hand.cards.forEach(function (card) {
+			if (!card.hidden) {
+				let cardValueD = card[0].number;
+				if (!card.hidden) {
+					switch (cardValueD) {
+						case 1:
+							cardValue = 'Ace';
+							break;
+						case 11:
+							cardValue = 'Jack';
+							break;
+						case 12:
+							cardValue = 'Queen';
+							break;
+						case 13:
+							cardValue = 'King';
+							break;
+						default:
+							cardValueD = cardValueD;
+							break;
+					}
+					textDealer = textDealer + "a... " + (cardValueD); 
+				}
+			}
+		});
+		this.state.players.player.hand.cards.forEach(function (card) {
+			let cardValue = card[0].number;
+			switch (cardValue) {
+				case 1:
+					cardValue = 'Ace';
+					break;
+				case 11:
+					cardValue = 'Jack';
+					break;
+				case 12:
+					cardValue = 'Queen';
+					break;
+				case 13:
+					cardValue = 'King';
+					break;
+				default:
+					cardValue = cardValue;
+					break;
+			}
+			textPlayer = textPlayer + "a..." + (cardValue);  
+		});
+
+		let text = "" + textDealer + " " + textPlayer;
+
+		var msg = new SpeechSynthesisUtterance(text);
+		window.speechSynthesis.speak(msg);
+
+	}
+
 	// Shows dealer's hidden card
 	revealDealer() {
 		this.state.players.computer.hand.cards.forEach(function(card){
@@ -262,6 +320,7 @@ class Game extends React.Component {
 							{winBox}
 						</div>
 						<div className="game__controls">
+							<button onClick={this.handleRead.bind(this)}>Read Cards</button>
 							<button onClick={this.handleRestart.bind(this)}>Restart</button>
 							<button onClick={this.handleHit.bind(this)} disabled={this.state.winner != ''}>Hit</button>
 							<button onClick={this.handleStand.bind(this)} disabled={this.state.winner != ''}>Stand</button>

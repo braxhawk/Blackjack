@@ -25,6 +25,7 @@ class Card extends React.Component {
 		return (
 			<div className={(suit == '♥' || suit == '♦') ? 'card card--red': 'card'}>
 				<a aria-hidden="true">{cardContent}</a>
+
 			</div>
 		);
 	}
