@@ -207,16 +207,54 @@ class Game extends React.Component {
 	}
 
 	handleRead() {
-		let textDealer = "The Dealer cards are ";
+		let textDealer = "The Dealer's cards are ";
 		let textPlayer = "Your cards are ";
 
 		this.state.players.computer.hand.cards.forEach(function (card) {
 			if (!card.hidden) {
-				textDealer = textDealer + "a... " + (card[0].number); 
+				let cardValueD = card[0].number;
+				if (!card.hidden) {
+					switch (cardValueD) {
+						case 1:
+							cardValue = 'Ace';
+							break;
+						case 11:
+							cardValue = 'Jack';
+							break;
+						case 12:
+							cardValue = 'Queen';
+							break;
+						case 13:
+							cardValue = 'King';
+							break;
+						default:
+							cardValueD = cardValueD;
+							break;
+					}
+					textDealer = textDealer + "a... " + (cardValueD); 
+				}
 			}
 		});
 		this.state.players.player.hand.cards.forEach(function (card) {
-			textPlayer = textDealer + "a... " + (card[0].number); 
+			let cardValue = card[0].number;
+			switch (cardValue) {
+				case 1:
+					cardValue = 'Ace';
+					break;
+				case 11:
+					cardValue = 'Jack';
+					break;
+				case 12:
+					cardValue = 'Queen';
+					break;
+				case 13:
+					cardValue = 'King';
+					break;
+				default:
+					cardValue = cardValue;
+					break;
+			}
+			textPlayer = textPlayer + "a..." + (cardValue);  
 		});
 
 		let text = "" + textDealer + " " + textPlayer;

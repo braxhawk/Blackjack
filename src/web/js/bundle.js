@@ -400,12 +400,48 @@ var Game = function (_React$Component) {
 			let textPlayer = this.state.players.player.name + "...Your cards are ";
 	
 			this.state.players.computer.hand.cards.forEach(function (card) {
+				let cardValueD = card[0].number;
 				if (!card.hidden) {
-					textDealer = textDealer + "a... " + (card[0].number); 
+					switch (cardValueD) {
+						case 1:
+							cardValueD = 'Ace';
+							break;
+						case 11:
+							cardValueD = 'Jack';
+							break;
+						case 12:
+							cardValueD = 'Queen';
+							break;
+						case 13:
+							cardValueD = 'King';
+							break;
+						default:
+							cardValueD = cardValueD;
+							break;
+					}
+					textDealer = textDealer + " ...a... " + (cardValueD); 
 				}
 			});
 			this.state.players.player.hand.cards.forEach(function (card) {
-				textPlayer = textPlayer + "a..." + (card[0].number); 
+				let cardValue = card[0].number;
+				switch (cardValue) {
+					case 1:
+						cardValue = 'Ace';
+						break;
+					case 11:
+						cardValue = 'Jack';
+						break;
+					case 12:
+						cardValue = 'Queen';
+						break;
+					case 13:
+						cardValue = 'King';
+						break;
+					default:
+						cardValue = cardValue;
+						break;
+				}
+				textPlayer = textPlayer + " ...a..." + (cardValue); 
 			});
 
 			let text = "" + textDealer + "... " + textPlayer;
