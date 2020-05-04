@@ -96,7 +96,7 @@ var Card = function (_React$Component) {
 			for (var i = 0; i < 1; i++) {
 				corners.push(_react2.default.createElement(
 					'span',
-					{ key: i, className: 'card__corner' },
+					{ key: i, className: 'card__corner'},
 					_helpers2.default.getCardName(this.props.number)
 				));
 			}
@@ -105,16 +105,21 @@ var Card = function (_React$Component) {
 			if (this.props.hidden !== true) {
 				cardContent = _react2.default.createElement(
 					'div',
-					{'aria-hidden': 'true'},
+					{role:"text"},
 					corners,
 					suit
 				);
-				//cardContent[aria-hidden] = 'true';
+			} else {
+				cardContent = _react2.default.createElement(
+					'div',
+					{role:"text", "aria-label": 'Hidden card.'},
+					""
+				);
 			}
 
 			return _react2.default.createElement(
 				'div',
-				{ className: suit == '♥' || suit == '♦' ? 'card card--red' : 'card', 'aria-label': this.props.hidden ? 'hidden card' : _helpers2.default.getCardName(this.props.number) + " of " + suit},
+				{ className: suit == '♥' || suit == '♦' ? 'card card--red' : 'card', role:'text'},
 				cardContent
 			);
 		}
@@ -362,11 +367,6 @@ var Game = function (_React$Component) {
 				computerTotal = this.state.players.computer.hand.total;
 			}
 
-			while (computerTotal < 19) {
-				this.addCard('computer');
-				computerTotal = this.state.players.computer.hand.total;
-			}
-
 			// Stand win logic
 			if (computerTotal > 21) {
 				this.setState({ winner: 'player' });
@@ -595,7 +595,7 @@ var GameSetup = function (_React$Component) {
 						_react2.default.createElement(
 							'h1',
 							null,
-							"Blackjack",
+							"BLACKJACK",
 							_react2.default.createElement("br", null)
 						),
 						_react2.default.createElement(
@@ -608,7 +608,8 @@ var GameSetup = function (_React$Component) {
 						_react2.default.createElement(
 							"p", 
 							null, 
-							"Enter your name and press play to start. The goal is to get closer to 21 than the dealer without exceeding it. Use 'Hit' or 'Stand' to do so. The game is high-contrast and fully VoiceOver compatible."
+							"Enter name and press play to start. The goal is to get closer to 21 than the dealer without exceeding it, using the 'Hit' or 'Stand' buttons to draw more cards or pass your turn. The game is high-contrast and compatible with VoiceOver and ChromeVox.",
+							_react2.default.createElement("br", null)
 						),
 						_react2.default.createElement(
 							"label",
