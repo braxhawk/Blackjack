@@ -475,8 +475,12 @@ input {
   .card {
     width: 9rem;
     height: 9rem;
+    font-size: 2rem;
   }
 
+  #instructiontext {
+    font-size: medium;
+  }
   
 }
 

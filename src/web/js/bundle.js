@@ -636,14 +636,13 @@ var GameSetup = function (_React$Component) {
 						),
 						_react2.default.createElement(
 							"label",
-							null,
 							_react2.default.createElement("br", null),
 							"Instructions:",
 							_react2.default.createElement("br", null),
 						),
 						_react2.default.createElement(
 							"p", 
-							null, 
+							{id: "instructiontext"}, 
 							"Enter name and press play to start. The goal is to get closer to 21 than the dealer without exceeding it, using the 'Hit' or 'Stand' buttons to draw more cards or pass your turn. The game is high-contrast and compatible with VoiceOver and ChromeVox.",
 							_react2.default.createElement("br", null)
 						),
